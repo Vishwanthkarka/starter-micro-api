@@ -1,5 +1,7 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
+const express = require("express")
+const app = express();
 const request = require("request-promise");
 require('dotenv').config()
 const ck = process.env.ck;
@@ -200,7 +202,13 @@ async function aa  (){
 
  
 }
-aa()
+
+app.get('/', aa
+)
+
+
+app.listen(process.env.port|| 6000
+})
 
 
 const dateInGMT = (dat) => {
