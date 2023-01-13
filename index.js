@@ -82,7 +82,7 @@ await axios
 .post(
   `${process.env.secoundwebsite}wp-json/wc/v3/products?consumer_key=${ck}&consumer_secret=${cs}`,
   {
-    "name": ">"+name,
+    "name": "!"+name,
     "sale_price":"0.0",
     "price":price,
     "regular_price":price,
@@ -133,7 +133,7 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
 .post(
   `${process.env.secoundwebsite}wp-json/wc/v3/products/${idOfCourse}?consumer_key=${ck}&consumer_secret=${cs}`,
   {
-    "name": ">"+name,
+    "name": "!"+name,
     "sale_price":"0.0",
     "price":price,
     "regular_price":price,
