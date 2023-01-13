@@ -12,7 +12,7 @@ const Main = async (page) => {
   try {
     
 
-     await setTimeout(async function(){ }, 10000);
+    
     const allUdemyCourses = await axios.get(`${process.env.mainweb}?page=${page}%20&per_page=30&free=0`).then( async responce => {return await responce.data.results}).catch(err=>console.log(err))
     allUdemyCourses.map(async (course) => {
        let uploadedDate = new Date( course.date)
@@ -52,7 +52,7 @@ const Main = async (page) => {
           udemyCourseLink.split("couponCode=")[1] == !undefined
             ? courseLink.split("couponCode=")[1]
             : "No Coupon code needed";
-            await setTimeout(async function(){ }, 10000);     
+                
       const requestcourses  = async () => { 
         let resForID = await axios
           .get(
@@ -68,7 +68,7 @@ const Main = async (page) => {
            
            
           })
-          await setTimeout(async function(){ }, 10000);
+        
         if (resForID == undefined) {
 console.log("course id not exited"+resForID)
 console.log()
@@ -128,7 +128,7 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
           ).html();
 
             console.log("course  exited")
-            await setTimeout(async function(){ }, 10000);
+            
             await axios
 .post(
   `${process.env.secoundwebsite}wp-json/wc/v3/products/${idOfCourse}?consumer_key=${ck}&consumer_secret=${cs}`,
@@ -179,17 +179,7 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
 };
 
 async function aa  (){
- await setTimeout(async function(){ await Main(1) }, 6000);
- await setTimeout(function(){
-    console.log("delaying-1")
 
- }, 500); 
- await setTimeout(async function(){ await Main(2) }, 6000);
- await setTimeout(function(){
-    console.log("delaying-2")
-
- }, 500); 
- await setTimeout(async function(){ await Main(3) }, 6000);
  await setTimeout(function(){
     console.log("delaying-2")
 
@@ -203,6 +193,11 @@ async function aa  (){
  
 }
 
+async function aa  (){
+await Main(1)
+  await Main(2)
+  await Main(3)
+}
 app.get('/', aa
 )
 
