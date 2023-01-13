@@ -11,7 +11,7 @@ const Main = async (page) => {
     
 
      await setTimeout(async function(){ }, 10000);
-    const allUdemyCourses = await axios.get(`${mainweb}?page=${page}%20&per_page=30&free=0`).then( async responce => {return await responce.data.results}).catch(err=>console.log(err))
+    const allUdemyCourses = await axios.get(`${process.env.mainweb}?page=${page}%20&per_page=30&free=0`).then( async responce => {return await responce.data.results}).catch(err=>console.log(err))
     allUdemyCourses.map(async (course) => {
        let uploadedDate = new Date( course.date)
        let saleStartedDate = new Date(course.sale_start)
@@ -54,7 +54,7 @@ const Main = async (page) => {
       const requestcourses  = async () => { 
         let resForID = await axios
           .get(
-            `${secoundwebsite}wc-api/v3/products/?filter[sku]=${suk}&consumer_key=${ck}&consumer_secret=${cs}`,
+            `${process.env.secoundwebsite}wc-api/v3/products/?filter[sku]=${suk}&consumer_key=${ck}&consumer_secret=${cs}`,
           )
           .then(  async (response)  => {
           
@@ -78,7 +78,7 @@ const des = $(
 
 await axios
 .post(
-  `${secoundwebsite}wp-json/wc/v3/products?consumer_key=${ck}&consumer_secret=${cs}`,
+  `${process.env.secoundwebsite}wp-json/wc/v3/products?consumer_key=${ck}&consumer_secret=${cs}`,
   {
     "name": ">"+name,
     "sale_price":"0.0",
@@ -129,7 +129,7 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
             await setTimeout(async function(){ }, 10000);
             await axios
 .post(
-  `${secoundwebsite}wp-json/wc/v3/products/${idOfCourse}?consumer_key=${ck}&consumer_secret=${cs}`,
+  `${process.env.secoundwebsite}wp-json/wc/v3/products/${idOfCourse}?consumer_key=${ck}&consumer_secret=${cs}`,
   {
     "name": ">"+name,
     "sale_price":"0.0",
