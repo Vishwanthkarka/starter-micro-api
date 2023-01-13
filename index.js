@@ -207,8 +207,7 @@ app.get('/', aa
 )
 
 
-app.listen(process.env.port
-})
+app.listen(process.env.port)
 
 
 const dateInGMT = (dat) => {
