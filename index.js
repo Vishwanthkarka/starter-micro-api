@@ -168,7 +168,7 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
         
       } }
 
-      setTimeout(requestcourses,1000)
+      requestcourses()
     }
     })
 
@@ -178,12 +178,7 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
   
 };
 
-async function aa  (){
 
- await setTimeout(function(){
-    console.log("delaying-2")
-
- }, 500); 
 //  await setTimeout(async function(){ await Main(3) }, 10000);
 //  await setTimeout(function(){
 //     console.log("delaying-2")
