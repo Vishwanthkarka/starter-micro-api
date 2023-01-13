@@ -72,11 +72,7 @@ const Main = async (page) => {
         if (resForID == undefined) {
 console.log("course id not exited"+resForID)
 console.log()
-const htmlResult = await request.get(udemyCourseLink);
-const $ = cheerio.load(htmlResult);
-const des = $(
-'[data-purpose="safely-set-inner-html:description:description"]'
-).html();
+
 
 await axios
 .post(
@@ -121,11 +117,7 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
             else{
             const idOfCourse = resForID.id;
            
-            const htmlResult = await request.get(udemyCourseLink);
-            const $ = cheerio.load(htmlResult);
-        const des = $(
-            '[data-purpose="safely-set-inner-html:description:description"]'
-          ).html();
+      
 
             console.log("course  exited")
             
@@ -196,9 +188,7 @@ await Main(1)
 app.get('/', aa
 )
 
-
 app.listen(process.env.port)
-
 
 const dateInGMT = (dat) => {
   const date = new Date(dat);
