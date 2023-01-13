@@ -207,7 +207,7 @@ app.get('/', aa
 )
 
 
-app.listen(process.env.port|| 6000
+app.listen(process.env.port
 })
 
 
