@@ -178,10 +178,11 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
 //  }, 500); 
 
 
-async function aa  (){
+async function aa  (req,res){
 await Main(1)
   await Main(2)
   await Main(3)
+  res.send("working on it")
 }
 app.get('/', aa
 )
