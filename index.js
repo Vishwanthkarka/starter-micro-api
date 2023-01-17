@@ -65,8 +65,7 @@ const Main = async (req,res) => {
           .catch((error) => {
             console.log("&&&&&&&&&*************************$$$$$$$$$$$$$$$$$$$$$$$$$")
             console.error(error);
-           
-           
+            
           })
         
         if (resForID == undefined) {
