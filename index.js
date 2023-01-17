@@ -8,12 +8,12 @@ const ck = process.env.ck;
 const cs = process.env.cs;
 
 
-const Main = async (page) => {
+const Main = async (req,res) => {
   try {
     
 
     
-    const allUdemyCourses = await axios.get(`${process.env.mainweb}?page=${page}%20&per_page=30&free=0`).then( async responce => {return await responce.data.results}).catch(err=>console.log(err))
+    const allUdemyCourses = await axios.get(`${process.env.mainweb}?page=${req.params['id']}%20&per_page=30&free=0`).then( async responce => {return await responce.data.results}).catch(err=>console.log(err))
     allUdemyCourses.map(async (course) => {
        let uploadedDate = new Date( course.date)
        let saleStartedDate = new Date(course.sale_start)
@@ -171,21 +171,7 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
 };
 
 
-//  await setTimeout(async function(){ await Main(3) }, 10000);
-//  await setTimeout(function(){
-//     console.log("delaying-2")
-
-//  }, 500); 
-
-
-async function aa  (req,res){
-await Main(1)
-  await Main(2)
-  await Main(3)
-  res.send("working on it")
-}
-app.get('/', aa
-)
+app.get('/:id',Main)
 
 app.listen(process.env.port)
 
