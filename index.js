@@ -11,21 +11,19 @@ const cs = process.env.cs;
 const Main = async (req,res) => {
   try {
     
-
+let no = req.params['id']
     
     const allUdemyCourses = await axios.get(`${process.env.mainweb}?page=${req.params['id']}%20&per_page=30&free=0`).then( async responce => {return await responce.data.results}).catch(err=>console.log(err))
     allUdemyCourses.map(async (course) => {
        let uploadedDate = new Date( course.date)
        let saleStartedDate = new Date(course.sale_start)
        let todaysDate = new Date()
-       console.log(todaysDate.getUTCHours()-1  ||   todaysDate.getUTCHours()-1  )
-       //console.log((uploadedDate.getMonth() == todaysDate.getUTCMonth() && uploadedDate.getFullYear() ==  todaysDate.getUTCFullYear() && uploadedDate.getDate() == todaysDate.getUTCDate() && (todaysDate.getUTCHours()-1<= uploadedDate.getHours?true:false))||  ( saleStartedDate.getMonth() == todaysDate.getUTCMonth() && saleStartedDate.getFullYear() ==  todaysDate.getUTCFullYear() && saleStartedDate.getDate() == todaysDate.getUTCDate() && (todaysDate.getUTCHours()-1<= saleStartedDate.getHours?true:false)))
-      if (
+       
+        if (
     course.sale_price == 0 &&
     course.isexpired == "Available" &&
     course.store == "Udemy" &&
-   // (uploadedDate.getMonth()== todaysDate.getUTCMonth() ||  saleStartedDate.getMonth() == todaysDate.getUTCMonth()) && (uploadedDate.getUTCFullYear()== todaysDate.getUTCFullYear()  ||  saleStartedDate.getUTCFullYear() == todaysDate.getUTCFullYear() )
-    
+   
     (( uploadedDate.getMonth() == todaysDate.getUTCMonth() && uploadedDate.getFullYear() ==  todaysDate.getUTCFullYear() && uploadedDate.getDate() == todaysDate.getUTCDate() && (todaysDate.getUTCHours()-1<= uploadedDate.getHours()?true:false))||  ( saleStartedDate.getMonth() == todaysDate.getUTCMonth() && saleStartedDate.getFullYear() ==  todaysDate.getUTCFullYear() && saleStartedDate.getDate() == todaysDate.getUTCDate() && (todaysDate.getUTCHours()-1<= saleStartedDate.getHours()?true:false)))
     ) {
         const {
@@ -69,10 +67,6 @@ const Main = async (req,res) => {
           })
         
         if (resForID == undefined) {
-console.log("course id not exited"+resForID)
-console.log()
-
-
 await axios
 .post(
   `${process.env.secoundwebsite}wp-json/wc/v3/products?consumer_key=${ck}&consumer_secret=${cs}`,
@@ -110,7 +104,7 @@ await axios
         }
         else{
             if(resForID.id == undefined){
-console.log(resForID)
+
 console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
             }
             else{
@@ -118,7 +112,6 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
            
       
 
-            console.log("course  exited")
             
             await axios
 .post(
@@ -151,18 +144,21 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
       <h1 class="description">📚 Description</h1> <div class ="desc_content"> </div>  `
 }
 )
-.then(async (response)  => await console.log(response.data.sku))
+.then(async (response)  => await console.log(response.data.permalink))
 .catch((err) => { console.log("***&&&^^^^^%%%%%%%%%%%%%$$$##@@@@@@@@@");
  console.log(err)});
-              res.send(id)
+              
  
         }
         
       } }
 
       requestcourses()
+     
     }
+    
     })
+    res.send("<h1>Done</h1>")
 
   } catch (err) {
     console.log("*****************" + err + "*********************");
@@ -173,7 +169,7 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
 
 app.get('/:id',Main)
 
-app.listen(process.env.port)
+app.listen(process.env.port,()=> console.log("server is running"))
 
 const dateInGMT = (dat) => {
   const date = new Date(dat);
