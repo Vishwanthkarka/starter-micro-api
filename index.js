@@ -154,6 +154,7 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
 .then(async (response)  => await console.log(response.data.sku))
 .catch((err) => { console.log("***&&&^^^^^%%%%%%%%%%%%%$$$##@@@@@@@@@");
  console.log(err)});
+              res.send(id)
  
         }
         
