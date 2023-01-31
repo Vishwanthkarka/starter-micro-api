@@ -7,7 +7,7 @@
     "request-promise": "^4.2.6"
   },
   "scripts": {
-    "test": "node mainScript"
+    "test": "node index"
   },
   "keywords": [],
   "author": "",
