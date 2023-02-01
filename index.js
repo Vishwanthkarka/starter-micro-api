@@ -50,7 +50,7 @@ let no = req.params['id']
           udemyCourseLink.split("couponCode=")[1] == !undefined
             ? courseLink.split("couponCode=")[1]
             : "No Coupon code needed";
-                
+              console.log(dateInGMT(new Date()))
       const requestcourses  = async () => { 
         let resForID = await axios
           .get(
