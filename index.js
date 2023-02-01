@@ -51,6 +51,7 @@ let no = req.params['id']
             ? courseLink.split("couponCode=")[1]
             : "No Coupon code needed";
               console.log(dateInGMT(new Date()))
+          console.log(new Date());
       const requestcourses  = async () => { 
         let resForID = await axios
           .get(
