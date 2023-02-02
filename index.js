@@ -77,8 +77,8 @@ await axios
     "price":price,
     "regular_price":price,
     "sku":suk,
-    "date_created_gmt": dateInGMT(new Date()),
-    "date_on_sale_from_gmt": dateInGMT(new Date()),
+    "date_created_gmt": new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString(),
+    "date_on_sale_from_gmt": new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString(),
         "images":[
           {
              "src":image ,
@@ -86,8 +86,8 @@ await axios
              "name": name
           }
       ],
-    "date_on_sale_to_gmt":dateInGMT(sale_end),
-    "date_modified_gmt":dateInGMT(new Date())
+    "date_on_sale_to_gmt":new Date(new Date(sale_end).toString().split('GMT')[0]+' UTC').toISOString(),
+    "date_modified_gmt": new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString()
        ,
         "short_description":`<div class ="short_disc"> <b>⏱ Duration</b> ${lectures} hours\r\n
          <b>❤ Rating:</b>  ${rating.slice(0,4).replace("0E-","0.")} out of 5.0  \r\n
@@ -123,8 +123,8 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
     "sale_price":"0.0",
     "price":price,
     "regular_price":price,
-    "date_created_gmt": dateInGMT(new Date()),
-    "date_on_sale_from_gmt": dateInGMT(new Date()),
+    "date_created_gmt":  new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString(),
+    "date_on_sale_from_gmt":  new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString(),
         "images":[
           {
              "id":resForID.images[0].id,
@@ -132,9 +132,9 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
              "name": name
           }
       ],
-    "date_on_sale_to_gmt":dateInGMT(sale_end)
+    "date_on_sale_to_gmt": new Date(new Date(sale_end).toString().split('GMT')[0]+' UTC').toISOString()
        ,
-    "date_modified_gmt":dateInGMT(new Date()),
+    "date_modified_gmt":new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString(),
         "short_description":`<div class ="short_disc"> <b>⏱ Duration</b> ${lectures} hours\r\n
          <b>❤ Rating:</b>  ${rating.slice(0,4).replace("0E-","0.")} out of 5.0  \r\n
         <b>📢 language:</b>${language}\r\n
