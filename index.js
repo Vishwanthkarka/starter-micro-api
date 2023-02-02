@@ -86,7 +86,8 @@ await axios
              "name": name
           }
       ],
-    "date_on_sale_to_gmt":dateInGMT(sale_end)
+    "date_on_sale_to_gmt":dateInGMT(sale_end),
+    "date_modified_gmt":dateInGMT(new Date())
        ,
         "short_description":`<div class ="short_disc"> <b>⏱ Duration</b> ${lectures} hours\r\n
          <b>❤ Rating:</b>  ${rating.slice(0,4).replace("0E-","0.")} out of 5.0  \r\n
@@ -133,6 +134,7 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
       ],
     "date_on_sale_to_gmt":dateInGMT(sale_end)
        ,
+    "date_modified_gmt":dateInGMT(new Date()),
         "short_description":`<div class ="short_disc"> <b>⏱ Duration</b> ${lectures} hours\r\n
          <b>❤ Rating:</b>  ${rating.slice(0,4).replace("0E-","0.")} out of 5.0  \r\n
         <b>📢 language:</b>${language}\r\n
