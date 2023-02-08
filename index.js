@@ -13,7 +13,7 @@ const Main = async (req,res) => {
     
 let no = req.params['id']
     
-    const allUdemyCourses = await axios.get(`${process.env.mainweb}?page=${req.params['id']}%20&per_page=2&free=0`).then( async responce => {return await responce.data.results}).catch(err=>console.log(err))
+    const allUdemyCourses = await axios.get(`${process.env.mainweb}?page=${req.params['id']}%20&per_page=1&free=0`).then( async responce => {return await responce.data.results}).catch(err=>console.log(err))
     allUdemyCourses.map(async (course) => {
        let uploadedDate = new Date( course.date)
        let saleStartedDate = new Date(course.sale_start)
