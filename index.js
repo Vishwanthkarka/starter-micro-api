@@ -66,13 +66,13 @@ let no = req.params['id']
             console.error(error);
             
           })
-           const htmlResult = await request.get(udemyCourseLink);
+           
+        if (resForID == undefined) {
+        const htmlResult = await request.get(udemyCourseLink);
             const $ = cheerio.load(htmlResult);
         const des = $(
             '[data-purpose="safely-set-inner-html:description:description"]'
           ).html();
-        if (resForID == undefined) {
-        
 await axios
 .post(
   `${process.env.secoundwebsite}wp-json/wc/v3/products?consumer_key=${ck}&consumer_secret=${cs}`,
@@ -117,7 +117,11 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
             else{
             const idOfCourse = resForID.id;
            
-      
+      const htmlResult = await request.get(udemyCourseLink);
+            const $ = cheerio.load(htmlResult);
+        const des = $(
+            '[data-purpose="safely-set-inner-html:description:description"]'
+          ).html();
 
             
             await axios
