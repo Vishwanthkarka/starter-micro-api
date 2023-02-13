@@ -68,11 +68,7 @@ let no = req.params['id']
           })
            
         if (resForID == undefined) {
-        const htmlResult = await request.get(udemyCourseLink);
-            const $ = cheerio.load(htmlResult);
-        const des = $(
-            '[data-purpose="safely-set-inner-html:description:description"]'
-          ).html();
+      
 await axios
 .post(
   `${process.env.secoundwebsite}wp-json/wc/v3/products?consumer_key=${ck}&consumer_secret=${cs}`,
@@ -103,7 +99,7 @@ await axios
         <div class= "Coupon_section" id = "Coupon_section"><strong>                 🎁 Coupon Code</strong>:<span class ="coupon_color" id = "coupon_color"> <strong>${couponCode}</strong></span></div>
               <div class="center" id="button_enroll"><a href="${udemyCourseLink}" target="_blank" rel="nofollow noopener"><button class="button3" "="">Get Coupon</button></a></div> 
                 <div class="realted-courses-section"></div>
-      <h1 class="description">📚 Description</h1> <div class ="desc_content">${des} </div> `
+      <h1 class="description">📚 Description</h1> <div class ="desc_content"> </div> `
   }
 )
 .then((response) => console.log(response.data))
@@ -117,11 +113,7 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
             else{
             const idOfCourse = resForID.id;
            
-      const htmlResult = await request.get(udemyCourseLink);
-            const $ = cheerio.load(htmlResult);
-        const des = $(
-            '[data-purpose="safely-set-inner-html:description:description"]'
-          ).html();
+  
 
             
             await axios
@@ -153,7 +145,7 @@ console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
         <div class= "Coupon_section" id = "Coupon_section"><strong>                 🎁 Coupon Code</strong>:<span class ="coupon_color" id = "coupon_color"> <strong>${couponCode}</strong></span></div>
               <div class="center" id="button_enroll"><a href="${udemyCourseLink}" target="_blank" rel="nofollow noopener"><button class="button3" "="">Get Coupon</button></a></div> 
                 <div class="realted-courses-section"></div>
-      <h1 class="description">📚 Description</h1> <div class ="desc_content">${des} </div>  `
+      <h1 class="description">📚 Description</h1> <div class ="desc_content"> </div>  `
 }
 )
 .then(async (response)  => await console.log(response.data.permalink))
